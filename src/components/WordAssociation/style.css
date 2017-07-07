@@ -1,0 +1,9 @@
+.word-association {
+  text-align: center;
+}
+
+.word-association__word {
+  display: block;
+  font-size: 6rem;
+  color: brown;
+}

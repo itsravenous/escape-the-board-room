@@ -1,8 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
+import Clue from './components/Clue';
 import Home from './components/Home';
 import NoteDetection from './components/NoteDetection';
+import WordAssociation from './components/WordAssociation';
 import config from './config';
 import './index.css';
 
@@ -20,6 +22,17 @@ ReactDOM.render(
         )}/>
         <Route exact path='/notes' component={() => (
           <NoteDetection song='ABCDEF'/>
+        )}/>
+        <Route exact path='/word-association' component={(props) => (
+          <WordAssociation
+            answer='banana'
+            onComplete={() => props.history.push('/clue/word-association')}
+            word='☕'
+          />
+        )}/>
+
+        <Route exact path='/clue/:id' component={(props) => (
+          <Clue clue={config.CLUES[props.match.params.id]}/>
         )}/>
       </div>
     </BrowserRouter>
