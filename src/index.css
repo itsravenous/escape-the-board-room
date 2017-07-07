@@ -1,0 +1,98 @@
+/**
+ * Stolen from https://github.com/itsravenous/treasure-hunt-2016/blob/master/static/time.css
+ */
+
+/* Font definitions */
+@font-face {
+  font-family: 'Space Mono';
+  src: url('/fonts/SpaceMono-Regular.ttf');
+}
+@font-face {
+  font-family: 'Space Mono';
+  font-weight: bold;
+  src: url('/fonts/SpaceMono-Bold.ttf');
+}
+@font-face {
+  font-family: 'Space Mono';
+  font-style: italic;
+  src: url('/fonts/SpaceMono-Italic.ttf');
+}
+/* Common styles */
+html.screen, html.screen body {
+  height: 100%;
+}
+html.screen body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Remove annoying interactions on touch devices. Probably terrible for accessibility */
+  -webkit-touch-callout: none; /* iOS Safari */
+  -webkit-user-select: none; /* Chrome/Safari/Opera */
+  -khtml-user-select: none; /* Konqueror */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* Internet Explorer/Edge */
+  user-select: none;
+}
+
+body {
+  margin: 1.5rem 1rem;
+  font-family: 'Space Mono', fixed;
+}
+
+body > * {
+  max-width: 32rem;
+}
+body > :last-child {
+  padding-bottom: 2rem; /* Hack in bottom padding when page scrolls */
+}
+
+[hidden] {
+  opacity: 0;
+  pointer-events: none;
+}
+.message {
+  transition: opacity 0.25s;
+}
+
+/* Button styles */
+.button-list {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  transition: opacity 0.25s;
+}
+button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  border-radius: 50%;
+  border: 3px solid black;
+  background: white;
+  font-family: 'Space Mono', fixed;
+  font-weight: bold;
+
+  transition: border-width 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.25s ease-in-out;
+
+  display: flex;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+
+  width: 7.75rem;
+  height: 7.75rem;
+  padding: 1rem;
+
+  /* Remove tap delay in IE/Edge */
+  -ms-touch-action: manipulation;	/* IE10  */
+	touch-action: manipulation;		/* IE11+ */
+}
+button:focus {
+  outline: none;
+}
+button:active {
+  border-width: 10px
+}
+button[disabled]:active {
+  border-width: 3px;
+}
