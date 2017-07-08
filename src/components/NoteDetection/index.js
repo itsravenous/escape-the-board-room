@@ -22,7 +22,7 @@ class NoteDetection extends React.Component {
   }
 
   onDetectNote(note) {
-    const isCorrect = this.props.song[this.state.notes.length] === note;
+    const isCorrect = this.props.song[this.state.notes.length].toLowerCase() === note.toLowerCase();
     if(isCorrect && this.state.notes.length < this.props.song.length) {
       this.setState(state => (
         {

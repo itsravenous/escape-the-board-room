@@ -9,16 +9,12 @@ import WordAssociation from './components/WordAssociation';
 import config from './config';
 import './index.css';
 
+const gotoClue = (history, clue) => history.push(`/clue/${clue}`);
+
 ReactDOM.render(
   (
     <BrowserRouter>
-      <CSSTransitionGroup
-        component='div'
-        className='pages'
-        transitionName='pages__page'
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={500}
-      >
+      <div>
         <Route exact path='/' component={() => (
           <Home
             evilTeamMember={config.EVIL_TEAM_MEMBER}
@@ -27,13 +23,16 @@ ReactDOM.render(
             productRelatedPhrase={config.INTRO__PRODUCT_RELATED_PHRASE}
           />
         )}/>
-        <Route exact path='/notes' component={() => (
-          <NoteDetection song='ABCDEF'/>
+        <Route exact path='/notes' component={({history}) => (
+          <NoteDetection
+            song={config.NOTES__SONG}
+            onSongComplete={() => gotoClue(history, 'note-detection')}
+          />
         )}/>
-        <Route exact path='/word-association' component={(props) => (
+        <Route exact path='/word-association' component={({history}) => (
           <WordAssociation
             answer='banana'
-            onComplete={() => props.history.push('/clue/word-association')}
+            onComplete={() => gotoClue(history, 'word-association')}
             word='☕'
           />
         )}/>
@@ -41,7 +40,7 @@ ReactDOM.render(
         <Route exact path='/clue/:id' component={(props) => (
           <Clue clue={config.CLUES[props.match.params.id]}/>
         )}/>
-      </CSSTransitionGroup>
+      </div>
     </BrowserRouter>
   )
 , document.getElementById('root'));

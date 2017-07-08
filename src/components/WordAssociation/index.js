@@ -19,7 +19,7 @@ export default class WordAssociation extends React.Component {
     this.setState({
       proposedAnswer: value,
     });
-    if(value === this.props.answer) {
+    if(value.toLowerCase() === this.props.answer.toLowerCase()) {
       this.props.onComplete();
     }
   }
