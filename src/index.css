@@ -96,3 +96,15 @@ button:active {
 button[disabled]:active {
   border-width: 3px;
 }
+
+/* Route transition */
+.pages__page-enter {
+  opacity: 0.0001;
+  transition: opacity 0.5s;
+}
+.pages__page-enter-active {
+  opacity: 1;
+}
+.pages__page-leave-active {
+  opacity: 0.0001;
+}

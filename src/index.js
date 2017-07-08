@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
+import {CSSTransitionGroup} from 'react-transition-group';
 import Clue from './components/Clue';
 import Home from './components/Home';
 import NoteDetection from './components/NoteDetection';
@@ -11,7 +12,13 @@ import './index.css';
 ReactDOM.render(
   (
     <BrowserRouter>
-      <div>
+      <CSSTransitionGroup
+        component='div'
+        className='pages'
+        transitionName='pages__page'
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={500}
+      >
         <Route exact path='/' component={() => (
           <Home
             evilTeamMember={config.EVIL_TEAM_MEMBER}
@@ -34,7 +41,7 @@ ReactDOM.render(
         <Route exact path='/clue/:id' component={(props) => (
           <Clue clue={config.CLUES[props.match.params.id]}/>
         )}/>
-      </div>
+      </CSSTransitionGroup>
     </BrowserRouter>
   )
 , document.getElementById('root'));
