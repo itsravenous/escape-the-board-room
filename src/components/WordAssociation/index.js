@@ -35,7 +35,7 @@ export default class WordAssociation extends React.Component {
         <span className='word-association__word'>{word}</span>
         <input
           type='text'
-          maxLength='6'
+          maxLength={this.props.answer.length}
           onChange={this.handleInputChange}
           value={this.state.proposedAnswer}
         />
