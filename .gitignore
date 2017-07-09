@@ -60,3 +60,8 @@ typings/
 # app configuration
 src/config.json
 
+# custom content
+audio
+
+# jammer lockfile
+jammer_lock
