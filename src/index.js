@@ -5,6 +5,7 @@ import {CSSTransitionGroup} from 'react-transition-group';
 import QRCode from 'qrcode.react';
 import Clue from './components/Clue';
 import Home from './components/Home';
+import Launcher from './components/Launcher';
 import NoteDetection from './components/NoteDetection';
 import WordAssociation from './components/WordAssociation';
 import config from './config';
@@ -14,6 +15,14 @@ const gotoClue = (history, clue) => history.push(`/clue/${clue}`);
 const submitCode = (codeNumber) => {
   const request = new XMLHttpRequest();
   request.open('POST', `/lock-action/${codeNumber}`, true);
+  request.setRequestHeader('Accept', 'text/plain');
+  request.onload = Function.prototype;
+  request.send();
+};
+const attemptIgnition = () => {
+  console.log('attempt')
+  const request = new XMLHttpRequest();
+  request.open('POST', `/launch`, true);
   request.setRequestHeader('Accept', 'text/plain');
   request.onload = Function.prototype;
   request.send();
@@ -56,7 +65,13 @@ ReactDOM.render(
         )}/>
 
         <Route exact path='/launcher' component={({history}) => (
-          <h1>Launcher</h1>
+          <Launcher
+            boosterCount={config.LAUNCHER__REQUIRED_IGNITIONS}
+            evilTeamMember={config.EVIL_TEAM_MEMBER}
+            onButtonPress={attemptIgnition}
+            shinyTechnology={config.LAUNCHER__SHINY_TECHNOLOGY}
+            stubbornTeamMember={config.LAUNCHER__STUBBORN_TEAM_MEMBER}
+          />
         )}/>
 
         <Route exact path='/clue/:id' component={(props) => (

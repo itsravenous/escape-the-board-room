@@ -15,3 +15,9 @@ It's up to you how the players determine the song you define as `NOTES__SONG`. I
 To run the UI and actions server, run `npm start`. This is by no means production-grade stuff 🐉
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app); see their README for details on deployment, etc.
+
+## Generla audio notes
+It's bring-your-own-sfx. All audio paths in `config.json` are relative to `public/audio`. For each entry in `CODES` you add in `config.json`, add an entry in `CODES_SOUND`. These will play as each lock is completed.
+
+## Teardown
+Once you've finished, remember to reset state so you can play again. It's mostly held in-memory, so stopping the node processes should work fine. You will also need to remove the `jammer_lock` file from the project root.

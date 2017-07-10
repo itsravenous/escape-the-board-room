@@ -1,4 +1,6 @@
 .locks {
+  margin: 0;
+  padding: 0;
   list-style: none;
 }
 .locks .locks__lock {
