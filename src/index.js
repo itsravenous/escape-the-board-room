@@ -25,6 +25,7 @@ ReactDOM.render(
         <Route exact path='/' component={({history}) => (
           <Home
             codes={config.CODES}
+            codeSounds={config.CODE_SOUNDS}
             evilTeamMember={config.EVIL_TEAM_MEMBER}
             heroTeamMember={config.HERO_TEAM_MEMBER}
             heroAdjective={config.INTRO__HERO_ADJECTIVE}

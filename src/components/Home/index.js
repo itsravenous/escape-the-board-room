@@ -21,7 +21,7 @@ class Home extends Component {
 
   handleCodeComplete(codeNumber) {
     this.setState({
-      music: '/audio/number_station.ogg'
+      music: `/audio/${this.props.codeSounds[codeNumber]}`,
     }, () => {
       this.player.play();
     });
@@ -94,7 +94,7 @@ class Home extends Component {
             key='d'
             onFinish={this.onTickerFinish}
           >
-            Another memory comes to you. The {heroAdjective} {heroTeamMember}, deftly dodging {evilTeamMember}'s chloroform cloth and disappearing down the corridor, yelling: "I'll transmit the first code as soon as I can, but you might have to knock out the jamming device first!"
+            Another memory comes to you. The {heroAdjective} {heroTeamMember}, deftly dodging {evilTeamMember}'s chloroform cloth and disappearing down the corridor, yelling: "I'll transmit the first code as soon as I can, but you'll have to knock out the jamming device first!"
           </Ticker>
 
           <Ticker
@@ -124,6 +124,7 @@ class Home extends Component {
 
 Home.propTypes = {
   codes: propTypes.arrayOf(propTypes.string),
+  codeSounds: propTypes.arrayOf(propTypes.string),
   evilTeamMember: propTypes.string,
   heroAdjective: propTypes.string,
   heroTeamMember: propTypes.string,
