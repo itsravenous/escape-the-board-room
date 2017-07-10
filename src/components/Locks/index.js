@@ -44,6 +44,7 @@ class Locks extends Component {
           >
             <input
               className={`locks__input locks__input--${lockStates[i]}`}
+              disabled={this.state.lockStates[i]}
               onChange={(event) => this.handleCodeEntry(event.target.value, i)}
               type='text'
               value={this.state.lockValues[i]}
