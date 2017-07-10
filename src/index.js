@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter, Route } from 'react-router-dom';
 import {CSSTransitionGroup} from 'react-transition-group';
+import QRCode from 'qrcode.react';
 import Clue from './components/Clue';
 import Home from './components/Home';
 import NoteDetection from './components/NoteDetection';
@@ -30,7 +31,7 @@ ReactDOM.render(
             heroTeamMember={config.HERO_TEAM_MEMBER}
             heroAdjective={config.INTRO__HERO_ADJECTIVE}
             onCodeComplete={submitCode}
-            onComplete={() => setTimeout(() => history.push('/launcher'), 1000)}
+            onComplete={() => setTimeout(() => history.push('/launcher-code'), 1000)}
             productRelatedPhrase={config.INTRO__PRODUCT_RELATED_PHRASE}
           />
         )}/>
@@ -46,6 +47,16 @@ ReactDOM.render(
             onComplete={() => gotoClue(history, 'word-association')}
             word='☕'
           />
+        )}/>
+
+        <Route exact path='/launcher-code' component={({history}) => (
+          <div className='qr-code'>
+            <QRCode value={`${config.HOST}/launcher`}/>
+          </div>
+        )}/>
+
+        <Route exact path='/launcher' component={({history}) => (
+          <h1>Launcher</h1>
         )}/>
 
         <Route exact path='/clue/:id' component={(props) => (

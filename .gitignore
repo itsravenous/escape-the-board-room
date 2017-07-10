@@ -56,6 +56,7 @@ typings/
 
 # dotenv environment variables file
 .env
+.env.development
 
 # app configuration
 src/config.json
