@@ -20,6 +20,7 @@
   width: 1rem;
   height: 1rem;
   padding: 0;
+  cursor: pointer;
   animation: pulse 1s infinite;
 
   /* Hide text */
