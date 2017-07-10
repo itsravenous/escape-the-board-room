@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import propTypes from 'prop-types';
+import Locks from '../Locks';
 import Pager from '../Pager';
 import Ticker from '../Ticker';
 import './style.css';
@@ -11,11 +13,23 @@ class Home extends Component {
       showNext: false,
     };
 
+    this.handleCodeComplete = this.handleCodeComplete.bind(this);
     this.onPage = this.onPage.bind(this);
     this.onTickerFinish = this.onTickerFinish.bind(this);
+    this.setPlayer = this.setPlayer.bind(this);
   }
 
-  onPage() {
+  handleCodeComplete(codeNumber) {
+    this.setState({
+      music: '/audio/number_station.ogg'
+    }, () => {
+      this.player.play();
+    });
+
+    this.props.onCodeComplete(codeNumber);
+  }
+
+  onPage(pageNumber) {
     this.setState({
       showNext: false,
     });
@@ -29,16 +43,28 @@ class Home extends Component {
     }, 1000);
   }
 
+  setPlayer(player) {
+    this.player = player;
+  }
+
   render() {
     const {
+      codes,
       evilTeamMember,
       heroAdjective,
       heroTeamMember,
+      onCodeComplete,
+      onComplete,
       productRelatedPhrase,
     } = this.props;
 
     return (
       <section className='home'>
+        <audio
+          ref={this.setPlayer}
+          src={this.state.music}
+        />
+
         <Pager
           onPage={this.onPage}
           showNext={this.state.showNext}
@@ -84,10 +110,24 @@ class Home extends Component {
           >
             It's that, or spend the rest of your days sizing JIRA tickets...
           </Ticker>
+
+          <Locks
+            codes={codes}
+            onCodeComplete={this.handleCodeComplete}
+            onComplete={onComplete}
+          />
         </Pager>
       </section>
     );
   }
 }
+
+Home.propTypes = {
+  codes: propTypes.arrayOf(propTypes.string),
+  evilTeamMember: propTypes.string,
+  heroAdjective: propTypes.string,
+  heroTeamMember: propTypes.string,
+  productRelatedPhrase: propTypes.string,
+};
 
 export default Home;

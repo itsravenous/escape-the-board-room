@@ -61,7 +61,7 @@ typings/
 src/config.json
 
 # custom content
-audio
+public/audio
 
 # jammer lockfile
 jammer_lock

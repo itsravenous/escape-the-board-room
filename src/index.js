@@ -10,16 +10,26 @@ import config from './config';
 import './index.css';
 
 const gotoClue = (history, clue) => history.push(`/clue/${clue}`);
+const submitCode = (codeNumber) => {
+  const request = new XMLHttpRequest();
+  request.open('POST', `/lock-action/${codeNumber}`, true);
+  request.setRequestHeader('Accept', 'text/plain');
+  request.onload = Function.prototype;
+  request.send();
+};
 
 ReactDOM.render(
   (
     <BrowserRouter>
       <div>
-        <Route exact path='/' component={() => (
+        <Route exact path='/' component={({history}) => (
           <Home
+            codes={config.CODES}
             evilTeamMember={config.EVIL_TEAM_MEMBER}
             heroTeamMember={config.HERO_TEAM_MEMBER}
             heroAdjective={config.INTRO__HERO_ADJECTIVE}
+            onCodeComplete={submitCode}
+            onComplete={() => setTimeout(() => history.push('/launcher'), 1000)}
             productRelatedPhrase={config.INTRO__PRODUCT_RELATED_PHRASE}
           />
         )}/>
