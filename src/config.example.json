@@ -1,0 +1,33 @@
+{
+  "HOST": "http://my-host:3000",
+  "CLUES": {
+    "word-association": "",
+    "note-detection": ""
+  },
+  "CODES": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
+  "CODE_SOUNDS": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
+  "EVIL_TEAM_MEMBER": "",
+  "HERO_TEAM_MEMBER": "",
+  "INTRO__HERO_ADJECTIVE": "",
+  "INTRO__PRODUCT_RELATED_PHRASE": "",
+  "LAUNCHER__REQUIRED_IGNITIONS": 2,
+  "LAUNCHER__SHINY_TECHNOLOGY": "",
+  "LAUNCHER__STUBBORN_TEAM_MEMBER": "",
+  "NOTES__SONG": "",
+  "WORD_ASSOCIATION__WORD1": "",
+  "WORD_ASSOCIATION__WORD2": ""
+}
