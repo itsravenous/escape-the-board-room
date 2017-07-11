@@ -50,6 +50,7 @@ class Home extends Component {
   render() {
     const {
       codes,
+      codeHints,
       evilTeamMember,
       heroAdjective,
       heroTeamMember,
@@ -113,6 +114,7 @@ class Home extends Component {
 
           <Locks
             codes={codes}
+            codeHints={codeHints}
             onCodeComplete={this.handleCodeComplete}
             onComplete={onComplete}
           />

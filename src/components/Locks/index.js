@@ -32,7 +32,10 @@ class Locks extends Component {
   }
 
   render() {
-    const { codes } = this.props;
+    const {
+      codes,
+      codeHints,
+    } = this.props;
     const { lockStates } = this.state;
 
     return (
@@ -46,6 +49,7 @@ class Locks extends Component {
               className={`locks__input locks__input--${lockStates[i]}`}
               disabled={this.state.lockStates[i]}
               onChange={(event) => this.handleCodeEntry(event.target.value, i)}
+              placeholder={codeHints[i]}
               type='text'
               value={this.state.lockValues[i]}
             />
@@ -63,6 +67,7 @@ Locks.defaultProps = {
 
 Locks.propTypes = {
   codes: propTypes.arrayOf(propTypes.string).isRequired,
+  codeHints: propTypes.arrayOf(propTypes.string).isRequired,
   onCodeComplete: propTypes.func,
   onComplete: propTypes.func,
 };

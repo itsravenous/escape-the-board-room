@@ -1,4 +1,4 @@
-const {spawn} = require('child_process');
+const {spawn, exec} = require('child_process');
 const server = require('express')();
 
 const config = require('../src/config.json');
@@ -22,8 +22,8 @@ const CODES = [
   200
 ];
 const REQUIRED_IGNITIONS = config.LAUNCHER__REQUIRED_IGNITIONS || 2;
+console.log(REQUIRED_IGNITIONS)
 server.post('/launch', (req, res, next) => {
-  console.log(req.headers.origin)
   IGNITION_ORIGINS[req.headers.origin] = true;
   setTimeout(() => {
     delete IGNITION_ORIGINS[req.headers.origin];
@@ -31,12 +31,12 @@ server.post('/launch', (req, res, next) => {
   // Do we have enough ignitions to launch the rocket?
   const liftoff = (Object.keys(IGNITION_ORIGINS).length >= REQUIRED_IGNITIONS) | 0;
   res.sendStatus(CODES[liftoff]);
-  console.log(IGNITION_ORIGINS)
 
   // Yes, let's launch!
   if (!HAVE_LAUNCHED && liftoff) {
     HAVE_LAUNCHED = true;
     spawn('mplayer', [`public/audio/${config.LAUNCHER__IGNITION_AUDIO}`]);
+    exec(config.LAUNCHER__IGNITION_COMMAND);
   }
 });
 

@@ -9,6 +9,7 @@
 }
 .locks__input {
   display: inline-block;
+  width: 25rem;
   padding: 0.5rem;
   background: white;
   color: gray;
