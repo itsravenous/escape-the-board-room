@@ -45,7 +45,6 @@ console.log(onButtonPress)
           onPage={this.onPage}
           showNext={this.state.showNext}
         >
-          <Button onClick={onButtonPress}>Launch</Button>
           <Ticker
             key='a'
             onFinish={this.onTickerFinish}
@@ -62,6 +61,7 @@ console.log(onButtonPress)
             <Ticker onFinish={this.onTickerFinish}>
               Close your eyes, join minds, and ignite.
             </Ticker>
+            <Button onClick={onButtonPress}>Launch</Button>
           </div>
         </Pager>
       </div>
