@@ -12,6 +12,14 @@
     "",
     ""
   ],
+  "CODE_HINTS": [
+    "",
+    "",
+    "",
+    "",
+    "",
+    ""
+  ],
   "CODE_SOUNDS": [
     "",
     "",
@@ -24,6 +32,8 @@
   "HERO_TEAM_MEMBER": "",
   "INTRO__HERO_ADJECTIVE": "",
   "INTRO__PRODUCT_RELATED_PHRASE": "",
+  "LAUNCHER__IGNITION_AUDIO": "",
+  "LAUNCHER__IGNITION_COMMAND": "",
   "LAUNCHER__REQUIRED_IGNITIONS": 2,
   "LAUNCHER__SHINY_TECHNOLOGY": "",
   "LAUNCHER__STUBBORN_TEAM_MEMBER": "",
