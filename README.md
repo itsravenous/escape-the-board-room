@@ -16,7 +16,7 @@ To run the UI and actions server, run `npm start`. This is by no means productio
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app); see their README for details on deployment, etc.
 
-## Generla audio notes
+## General audio notes
 It's bring-your-own-sfx. All audio paths in `config.json` are relative to `public/audio`. For each entry in `CODES` you add in `config.json`, add an entry in `CODES_SOUND`. These will play as each lock is completed.
 
 ## Teardown
